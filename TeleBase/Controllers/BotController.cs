@@ -1,17 +1,21 @@
-
-using Humanizer;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TeleBase.Models;
 
 namespace TeleBase.Controllers
 {
-    public class UserController : Controller
+    public class BotController : Controller
     {
         public MyDbContext dbContext = new MyDbContext();
+        
         public async Task<IActionResult> Index()
         {
-            return View(await dbContext.Users.ToListAsync());
+            return View(await dbContext.Bots.ToListAsync());
         }
 
         public IActionResult Create()
@@ -19,21 +23,21 @@ namespace TeleBase.Controllers
             return View();
         }
 
-        // POST: User/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name")] User user)
+        public async Task<IActionResult> Create([Bind("Name")] Bot bot)
         {
             if (ModelState.IsValid)
             {
-                await dbContext.AddAsync(user);
+                await dbContext.Bots.AddAsync(bot);
                 await dbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+
+            return View(bot);
         }
-    
-        
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -41,20 +45,20 @@ namespace TeleBase.Controllers
                 return NotFound();
             }
 
-            var user = await dbContext.Users.FindAsync(id);
-            if (user == null)
+            var bot = await dbContext.Bots.FindAsync(id);
+            if (bot == null)
             {
                 return NotFound();
             }
-            return View(user);
+
+            return View(bot);
         }
         
-        // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] User user)
+        public async Task<IActionResult> Edit(int id,[Bind("Id, Name")] Bot bot)
         {
-            if (id != user.Id)
+            if (id != bot.Id)
             {
                 return NotFound();
             }
@@ -63,12 +67,12 @@ namespace TeleBase.Controllers
             {
                 try
                 {
-                    dbContext.Update(user);
+                    dbContext.Update(bot);
                     await dbContext.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch(DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!BotExist(bot.Id))
                     {
                         return NotFound();
                     }
@@ -77,12 +81,13 @@ namespace TeleBase.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+
+            return View(bot);
         }
-        
-        // GET: User/Delete/5
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -90,31 +95,29 @@ namespace TeleBase.Controllers
                 return NotFound();
             }
 
-            var user = await dbContext.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            var bot = await dbContext.Bots.FirstOrDefaultAsync(b => b.Id == id);
+            if (bot == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(bot);
         }
 
-        // POST: User/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await dbContext.Users.FindAsync(id);
-            dbContext.Users.Remove(user);
+            var bot = await dbContext.Bots.FindAsync(id);
+            dbContext.Bots.Remove(bot);
             await dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool BotExist(int id)
         {
-            return dbContext.Users.Any(e => e.Id == id);
+            return dbContext.Bots.Any(b => b.Id == id);
         }
-
     }
 }

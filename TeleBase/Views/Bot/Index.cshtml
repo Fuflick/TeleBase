@@ -1,0 +1,28 @@
+@model IEnumerable<TeleBase.Models.Bot>
+
+<h1>Bots</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var bot in Model)
+    {
+        <tr>
+            <td>@bot.Id</td>
+            <td>@bot.Name</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@bot.Id" class="btn btn-primary btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@bot.Id" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success">Create New</a>

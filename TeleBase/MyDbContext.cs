@@ -21,6 +21,6 @@ public class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
-        builder.UseNpgsql("Host=172.17.0.3;Database=TelegramBase;Username=postgres;Password=123");
+        builder.UseNpgsql("Host=172.17.0.2;Database=TelegramBase;Username=postgres;Password=123");
     }
 }

@@ -14,19 +14,25 @@ namespace TeleBase.Controllers
             return View(await dbContext.Users.ToListAsync());
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: User/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Name")] User user)
+        public async Task<IActionResult> Create([Bind("Name")] User user)
         {
             if (ModelState.IsValid)
             {
-                await dbContext.Users.AddAsync(user);
+                dbContext.Add(user);
                 await dbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
             return View(user);
         }
+    
         
         public async Task<IActionResult> Edit(int? id)
         {

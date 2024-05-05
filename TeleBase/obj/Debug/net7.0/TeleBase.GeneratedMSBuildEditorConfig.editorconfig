@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/kraiben/Code/TeleBase/TeleBase
 build_property._RazorSourceGeneratorDebug = 
 
+[/home/kraiben/Code/TeleBase/TeleBase/Pages/Command/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tbWFuZC9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/kraiben/Code/TeleBase/TeleBase/Pages/Command/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tbWFuZC9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/kraiben/Code/TeleBase/TeleBase/Pages/Command/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tbWFuZC9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/kraiben/Code/TeleBase/TeleBase/Pages/Command/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tbWFuZC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/kraiben/Code/TeleBase/TeleBase/Views/Bot/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm90L0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

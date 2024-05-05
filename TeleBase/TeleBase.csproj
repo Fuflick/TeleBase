@@ -16,4 +16,15 @@
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Command\Create.cshtml" />
+      <AdditionalFiles Include="Views\Command\Delete.cshtml" />
+      <AdditionalFiles Include="Views\Command\Edit.cshtml" />
+      <AdditionalFiles Include="Views\Command\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

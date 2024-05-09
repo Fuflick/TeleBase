@@ -23,4 +23,8 @@
       <AdditionalFiles Include="Views\Command\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\" />
+    </ItemGroup>
+
 </Project>

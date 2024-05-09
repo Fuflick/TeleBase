@@ -1,0 +1,19 @@
+@model TeleBase.Models.BotCommand
+
+<h1>Create New BotCommand</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="BotId" class="control-label">BotId</label>
+        <select asp-for="BotId" class="form-control" asp-items="ViewBag.BotsList"></select>
+        <span asp-validation-for="BotId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CommandId" class="control-label">CommandId</label>
+        <select asp-for="CommandId" class="form-control" asp-items="ViewBag.CommandsList"></select>
+        <span asp-validation-for="CommandId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

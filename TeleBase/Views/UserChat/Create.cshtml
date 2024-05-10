@@ -1,0 +1,19 @@
+@model TeleBase.Models.UserChat
+
+<h1>Create UserChat</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label">User</label>
+        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserList"></select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChatId" class="control-label">Chat</label>
+        <select asp-for="ChatId" class="form-control" asp-items="ViewBag.ChatList"></select>
+        <span asp-validation-for="ChatId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,6 +1,5 @@
-@model TeleBase.Models.BotCommand
-
-<h1>Delete BotCommand</h1>
+@model TeleBase.Models.BotChat
+<h1>Delete BotChat</h1>
 
 <form asp-action="Delete" method="post">
     <input type="hidden" asp-for="Id" />
@@ -9,8 +8,8 @@
         <input asp-for="BotId" class="form-control" readonly="readonly" />
     </div>
     <div class="form-group">
-        <label asp-for="CommandId" class="control-label">CommandId</label>
-        <input asp-for="CommandId" class="form-control" readonly="readonly" />
+        <label asp-for="ChatId" class="control-label">ChatId</label>
+        <input asp-for="ChatId" class="form-control" readonly="readonly" />
     </div>
     <p>Are you sure you want to delete this?</p>
     <div class="form-group">

@@ -1,18 +1,34 @@
-@model dynamic
+@model IEnumerable<TeleBase.Models.BotChat>
 
-@{
-    Layout = null;
-}
+<h1>Bot Chats</h1>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>BotId</th>
+            <th>ChatId</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var botChat in Model)
+        {
+            <tr>
+                <td>@botChat.Id</td>
+                <td>@botChat.BotId</td>
+                <td>@botChat.ChatId</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@botChat.Id" class="btn btn-primary">Edit</a>
+                    <form asp-action="Delete" method="post" style="display: inline;">
+                        <input type="hidden" name="id" value="@botChat.Id"/>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

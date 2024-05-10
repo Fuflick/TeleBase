@@ -1,18 +1,20 @@
-@model dynamic
+@model TeleBase.Models.BotChat
 
-@{
-    Layout = null;
-}
+<h1>Create new BotChat</h1>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<form asp-action="Create">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="BotId" class="control-label">BotId</label>
+        <select asp-for="BotId" class="form-control" asp-items="ViewBag.BotList"></select>
+        <span asp-validation-for="BotId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChatId" class="control-label">ChatId</label>
+        <select asp-for="ChatId" class="form-control" asp-items="ViewBag.ChatList"></select>
+        <span asp-validation-for="ChatId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

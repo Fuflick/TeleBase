@@ -38,6 +38,9 @@ namespace TeleBase.Controllers
                 await _dbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.UsersList = new SelectList(_dbContext.Users.ToList(), "Id", "Name", userChat.UserId);
+            ViewBag.ChatList = new SelectList(_dbContext.Chats.ToList(), "Id", "Name", userChat.ChatId);
             return View(userChat);
         }
 
